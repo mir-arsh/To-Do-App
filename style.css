@@ -1,0 +1,698 @@
+/* ============================================
+   Global Styles & Reset
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1a1f35 50%, #0f172a 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #e2e8f0;
+    padding-bottom: 40px;
+}
+
+/* ============================================
+   CSS Variables (Dark Theme)
+   ============================================ */
+
+:root {
+    --primary-dark: #0f766e;
+    --primary: #14b8a6;
+    --primary-light: #2dd4bf;
+    --accent-teal: #06b6d4;
+    --accent-green: #10b981;
+    --accent-emerald: #059669;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    
+    --bg-primary: #1e293b;
+    --bg-secondary: #0f172a;
+    --bg-tertiary: #1a1f35;
+    --bg-hover: #334155;
+    
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-light: #94a3b8;
+    
+    --border-color: #334155;
+    --border-light: #475569;
+    
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* ============================================
+   Container Styles
+   ============================================ */
+
+/* ============================================
+   Header Styles
+   ============================================ */
+
+.app-header {
+    background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+    color: white;
+    padding: 32px 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.header-content {
+    flex: 1;
+    min-width: 200px;
+}
+
+.app-title {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+}
+
+.header-subtitle {
+    font-size: 14px;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.header-stats {
+    display: flex;
+    gap: 24px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 12px;
+    opacity: 0.85;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* ============================================
+   Main Container
+   ============================================ */
+
+.app-container {
+    flex: 1;
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ============================================
+   Input Section Styles
+   ============================================ */
+
+.input-section {
+    margin-top: 20px;
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+}
+
+#todoInput {
+    flex: 1;
+    padding: 14px 18px;
+    font-size: 16px;
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+#todoInput:focus {
+    outline: none;
+    border-color: var(--accent-green);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1), var(--shadow-sm);
+    transform: translateY(-2px);
+}
+
+#todoInput::placeholder {
+    color: var(--text-light);
+}
+
+.btn-add {
+    padding: 14px 20px;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: auto;
+}
+
+.btn-add:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.btn-add:active {
+    transform: translateY(-1px);
+}
+
+/* ============================================
+   Controls Section
+   ============================================ */
+
+.controls-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 0 4px;
+    flex-wrap: wrap;
+}
+
+.filter-controls {
+    display: flex;
+    gap: 8px;
+    background-color: var(--bg-primary);
+    padding: 4px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-light);
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.filter-btn:hover {
+    color: var(--accent-green);
+    background-color: rgba(16, 185, 129, 0.08);
+}
+
+.filter-btn.active {
+    color: white;
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-teal));
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-clear-all {
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--danger);
+    background-color: transparent;
+    border: 2px solid var(--danger);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.btn-clear-all:hover {
+    background-color: var(--danger);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.btn-clear-all:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    border-color: var(--border-light);
+    color: var(--text-light);
+}
+
+/* ============================================
+   Todo List Container
+   ============================================ */
+
+#todo-list {
+    list-style: none;
+    background-color: var(--bg-primary);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    animation: slideUp 0.5s ease;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-light);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#todo-list:empty::after {
+    content: '🎉 No tasks yet. Add one to get started!';
+    display: block;
+    padding: 50px 30px;
+    text-align: center;
+    color: var(--text-light);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#todo-list.filtered-empty::after {
+    content: 'No tasks in this filter.';
+}
+
+/* ============================================
+   Todo List Items
+   ============================================ */
+
+#todo-list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-light);
+    transition: all 0.2s ease;
+    background-color: var(--bg-primary);
+    position: relative;
+}
+
+#todo-list li:last-child {
+    border-bottom: none;
+}
+
+#todo-list li:hover {
+    background-color: var(--bg-hover);
+    padding-left: 24px;
+}
+
+#todo-list li.completed {
+    background-color: rgba(16, 185, 129, 0.08);
+}
+
+/* ============================================
+   Checkbox Styles
+   ============================================ */
+
+#todo-list input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--accent-green);
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+    border-radius: 4px;
+}
+
+#todo-list input[type="checkbox"]:hover {
+    transform: scale(1.15);
+}
+
+#todo-list input[type="checkbox"]:checked {
+    accent-color: var(--success);
+}
+
+/* ============================================
+   Todo Text Styles
+   ============================================ */
+
+#todo-list span {
+    flex: 1;
+    color: var(--text-primary);
+    font-size: 16px;
+    font-weight: 500;
+    word-break: break-word;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+#todo-list span:hover {
+    background-color: rgba(16, 185, 129, 0.12);
+}
+
+#todo-list li input[type="checkbox"]:checked + span {
+    text-decoration: line-through;
+    color: var(--text-light);
+    opacity: 0.6;
+    font-weight: 400;
+}
+
+#todo-list span.hint {
+    font-size: 13px;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* ============================================
+   Delete Button Styles
+   ============================================ */
+
+#todo-list button {
+    padding: 7px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    background-color: var(--danger);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+#todo-list button:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+#todo-list button:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 30px;
+    }
+
+    .app-header {
+        padding: 24px 16px;
+        gap: 16px;
+    }
+
+    .app-title {
+        font-size: 24px;
+    }
+
+    .header-subtitle {
+        font-size: 13px;
+    }
+
+    .header-stats {
+        gap: 18px;
+    }
+
+    .stat-value {
+        font-size: 20px;
+    }
+
+    .app-container {
+        padding: 0 16px;
+    }
+
+    .controls-section {
+        gap: 8px;
+    }
+
+    .filter-controls {
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .btn-clear-all {
+        width: 100%;
+    }
+
+    #todo-list li {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+
+    #todo-list li:hover {
+        padding-left: 16px;
+    }
+
+    #todo-list span {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-bottom: 20px;
+    }
+
+    .app-header {
+        padding: 20px 12px;
+        gap: 12px;
+    }
+
+    .app-title {
+        font-size: 22px;
+    }
+
+    .header-subtitle {
+        font-size: 12px;
+    }
+
+    .header-stats {
+        gap: 16px;
+    }
+
+    .stat-value {
+        font-size: 18px;
+    }
+
+    .stat-label {
+        font-size: 11px;
+    }
+
+    .app-container {
+        padding: 0 12px;
+        gap: 16px;
+        margin-top: 10px;
+    }
+
+    .input-wrapper {
+        gap: 8px;
+    }
+
+    #todoInput {
+        padding: 12px 14px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+
+    .btn-add {
+        padding: 12px 16px;
+        font-size: 18px;
+    }
+
+    .filter-controls {
+        gap: 6px;
+        padding: 3px;
+    }
+
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+
+    .btn-clear-all {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .controls-section {
+        gap: 6px;
+    }
+
+    #todo-list li {
+        padding: 12px 14px;
+        gap: 10px;
+    }
+
+    #todo-list li:hover {
+        padding-left: 14px;
+    }
+
+    #todo-list input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+    }
+
+    #todo-list span {
+        font-size: 14px;
+    }
+
+    #todo-list button {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    #todo-list:empty::after {
+        padding: 40px 20px;
+        font-size: 14px;
+    }
+}
+
+/* ============================================
+   Accessibility
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-white: #1f2937;
+        --bg-light: #111827;
+        --bg-lighter: #0f1419;
+        --text-primary: #f3f4f6;
+        --text-secondary: #d1d5db;
+        --text-light: #9ca3af;
+        --border-color: #374151;
+        --border-light: #4b5563;
+    }
+
+    #todoInput {
+        background-color: var(--bg-white);
+        color: var(--text-primary);
+        border-color: var(--border-light);
+    }
+
+    #todoInput:focus {
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2), var(--shadow-sm);
+    }
+
+    #todo-list {
+        background-color: var(--bg-white);
+    }
+
+    #todo-list li {
+        background-color: var(--bg-white);
+        border-bottom-color: var(--border-light);
+    }
+
+    #todo-list li:hover {
+        background-color: var(--bg-lighter);
+    }
+
+    #todo-list li.completed {
+        background-color: rgba(16, 185, 129, 0.1);
+    }
+
+    .filter-controls {
+        background-color: var(--bg-white);
+    }
+
+    #todo-list span:hover {
+        background-color: rgba(16, 185, 129, 0.15);
+    }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .app-header {
+        border-bottom: 2px solid var(--border-light);
+        background: white;
+        color: #000;
+    }
+
+    .app-title,
+    .header-subtitle,
+    .stat-label,
+    .stat-value {
+        color: #000;
+    }
+
+    .input-section,
+    .controls-section {
+        display: none;
+    }
+
+    #todo-list {
+        background: white;
+        color: #000;
+        border: 1px solid #ccc;
+    }
+
+    #todo-list li {
+        background: white;
+        border-bottom-color: #e0e0e0;
+        color: #000;
+    }
+
+    #todo-list span {
+        color: #000;
+    }
+
+    #todo-list li {
+        page-break-inside: avoid;
+    }
+}
